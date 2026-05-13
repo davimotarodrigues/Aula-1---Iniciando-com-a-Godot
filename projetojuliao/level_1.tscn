@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://cufnvmwkqafde"]
+
+[ext_resource type="PackedScene" uid="uid://3ue2v4mlxx2i" path="res://player.tscn" id="1_3hls8"]
+[ext_resource type="Texture2D" uid="uid://chg5g7jd2bl6x" path="res://top-view-volcanic-lava-fire-260nw-2487466185 (2).webp" id="2_hbghi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihfcg"]
+size = Vector2(427.492, 277.57578)
+
+[node name="level1" type="Node2D" unique_id=1120848590]
+position = Vector2(368, 284)
+
+[node name="Player" parent="." unique_id=510752141 instance=ExtResource("1_3hls8")]
+position = Vector2(211, 74)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1255789957]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=1428625753]
+position = Vector2(212, 288.5)
+scale = Vector2(2.6526809, 0.825)
+texture = ExtResource("2_hbghi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1976579981]
+position = Vector2(212, 288.5)
+scale = Vector2(2.6526809, 0.825)
+shape = SubResource("RectangleShape2D_ihfcg")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=1257498343]
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D2" unique_id=1957283055]
+position = Vector2(199, -232)
+scale = Vector2(2.6526809, 0.825)
+texture = ExtResource("2_hbghi")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=1043894186]
+position = Vector2(209, -239)
+scale = Vector2(2.6526809, 0.825)
+shape = SubResource("RectangleShape2D_ihfcg")
