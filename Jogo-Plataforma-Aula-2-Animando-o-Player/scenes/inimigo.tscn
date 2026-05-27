@@ -1,0 +1,49 @@
+[gd_scene format=3 uid="uid://cdl0kgsplq8ll"]
+
+[ext_resource type="Script" uid="uid://daqt32myhitm7" path="res://scripts/inimigo.gd" id="1_g45jm"]
+[ext_resource type="PackedScene" uid="uid://boft7xx7gbgay" path="res://scenes/killzone.tscn" id="2_4er16"]
+[ext_resource type="Texture2D" uid="uid://gv8r2e4v8df8" path="res://assets/Base pack/Enemies/slimeWalk1.png" id="2_enrbn"]
+[ext_resource type="Texture2D" uid="uid://dttui4wut4axk" path="res://assets/Base pack/Enemies/slimeWalk2.png" id="3_l0fh3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ui621"]
+size = Vector2(50, 29)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_o83ti"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_enrbn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l0fh3")
+}],
+"loop": true,
+"name": &"walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5cs1f"]
+size = Vector2(50, 28)
+
+[node name="inimigo" type="CharacterBody2D" unique_id=1318722889]
+script = ExtResource("1_g45jm")
+
+[node name="killzone" parent="." unique_id=134357713 instance=ExtResource("2_4er16")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone" unique_id=588273630]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_ui621")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1542832889]
+sprite_frames = SubResource("SpriteFrames_o83ti")
+animation = &"walk"
+autoplay = "walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1801872527]
+shape = SubResource("RectangleShape2D_5cs1f")
+
+[node name="FloorLeft" type="RayCast2D" parent="." unique_id=1262499682]
+target_position = Vector2(-19, 16)
+
+[node name="FloorRight" type="RayCast2D" parent="." unique_id=77620335]
+target_position = Vector2(23, 17)

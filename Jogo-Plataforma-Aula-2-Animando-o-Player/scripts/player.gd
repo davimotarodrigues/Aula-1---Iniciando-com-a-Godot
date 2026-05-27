@@ -2,9 +2,11 @@ extends CharacterBody2D
 
 
 const SPEED = 300.0
-const JUMP_VELOCITY = -800.0
+const JUMP_VELOCITY = -1000.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+func die():
+	get_tree().reload_current_scene()
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -41,6 +43,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 	
-
+	
 	move_and_slide()
 	
